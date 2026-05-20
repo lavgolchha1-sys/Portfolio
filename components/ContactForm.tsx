@@ -1,68 +1,41 @@
 import { site } from "@/content/site";
 
 export function ContactForm() {
-  if (!site.contactEndpoint) {
-    return (
-      <div className="card p-6 font-mono text-sm text-accent-pink">
-        ✗ Contact endpoint not configured. Set site.contactEndpoint in
-        content/site.ts.
-      </div>
-    );
-  }
+  const subject = encodeURIComponent("Hello from your portfolio");
+  const body = encodeURIComponent(
+    "Hi Lav,\n\n[Your message here]\n\n— "
+  );
+  const mailto = `mailto:${site.email}?subject=${subject}&body=${body}`;
 
   return (
-    <form
-      action={site.contactEndpoint}
-      method="POST"
-      className="card p-6 space-y-4"
-    >
-      <input
-        type="hidden"
-        name="_subject"
-        value="New message from your portfolio"
-      />
-
-      <div>
-        <label className="block font-mono text-xs text-ink-mute mb-1">
-          Name
-        </label>
-        <input
-          name="name"
-          required
-          className="w-full bg-bg-panel border border-bg-line rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent-cyan/60"
-        />
+    <div className="card p-6 md:p-8 space-y-5">
+      <div className="space-y-2">
+        <div className="font-mono text-xs text-ink-mute">// the easy way</div>
+        <p className="text-sm text-ink-dim leading-relaxed">
+          Click below and your email client will open with everything set up.
+          Just write your message and hit send.
+        </p>
       </div>
 
-      <div>
-        <label className="block font-mono text-xs text-ink-mute mb-1">
-          Email
-        </label>
-        <input
-          type="email"
-          name="email"
-          required
-          className="w-full bg-bg-panel border border-bg-line rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent-cyan/60"
-        />
-      </div>
-
-      <div>
-        <label className="block font-mono text-xs text-ink-mute mb-1">
-          Message
-        </label>
-        <textarea
-          name="message"
-          required
-          rows={6}
-          className="w-full bg-bg-panel border border-bg-line rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent-cyan/60 resize-y"
-        />
-      </div>
-
-      <button
-        type="submit"
-        className="font-mono text-sm px-4 py-2 rounded-md bg-accent-green/10 border border-accent-green/40 text-accent-green hover:bg-accent-green/20"
+      <a
+        href={mailto}
+        className="inline-flex items-center gap-2 font-mono text-sm px-5 py-3 rounded-md bg-accent-green/10 border border-accent-green/40 text-accent-green hover:bg-accent-green/20 transition-colors"
       >
-        Submit
-      </button>
-    </form>
+        <span>Email me</span>
+        <span aria-hidden>→</span>
+      </a>
+
+      <div className="pt-4 border-t border-bg-line space-y-2">
+        <div className="font-mono text-xs text-ink-mute">
+          // or copy this address
+        </div>
+        <a
+          href={`mailto:${site.email}`}
+          className="block font-mono text-sm text-accent-cyan link-underline break-all"
+        >
+          {site.email}
+        </a>
+      </div>
+    </div>
   );
 }
