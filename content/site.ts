@@ -11,7 +11,7 @@ export const site = {
   },
   tagline: "Translating actuarial complexity into clear, automated, compliant outcomes.",
   // Endpoint for the contact form. Replace with your Formspree/Web3Forms URL.
-  contactEndpoint: "https://formsubmit.co/ajax/lavgolchha1@gmail.com",
+  contactEndpoint: "https://formsubmit.co/lavgolchha1@gmail.com",
 };
 
 export type Site = typeof site;
