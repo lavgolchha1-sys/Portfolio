@@ -20,15 +20,6 @@ export default function ContactPage() {
 
         <aside className="card p-5 h-fit space-y-4 font-mono text-sm">
           <div>
-            <div className="text-xs text-ink-mute">// or reach me directly</div>
-            <a
-              href={`mailto:${site.email}`}
-              className="block mt-1 text-accent-green link-underline"
-            >
-              {site.email}
-            </a>
-          </div>
-          <div>
             <div className="text-xs text-ink-mute">// dm</div>
             <ul className="mt-1 space-y-1">
 	      <li>
