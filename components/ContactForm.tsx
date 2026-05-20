@@ -22,16 +22,20 @@ export function ContactForm() {
     }
 
     setStatus("sending");
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const payload = Object.fromEntries(new FormData(form).entries());
     try {
       const res = await fetch(site.contactEndpoint, {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("sent");
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Submission failed.");
