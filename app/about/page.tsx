@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/PageHeader";
+import { SocialLinks } from "@/components/SocialIcons";
 import { site } from "@/content/site";
 
 export const metadata = { title: "About" };
@@ -74,38 +75,9 @@ export default function AboutPage() {
           </div>
           <div>
             <div className="font-mono text-xs text-ink-mute">// elsewhere</div>
-            <ul className="mt-1 font-mono text-sm space-y-1">
-              <li>
-                <a
-                  href={site.socials.github}
-                  className="text-ink hover:text-accent-cyan link-underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  github
-                </a>
-              </li>
-              <li>
-                <a
-                  href={site.socials.linkedin}
-                  className="text-ink hover:text-accent-cyan link-underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  linkedin
-                </a>
-              </li>
-              <li>
-                <a
-                  href={site.socials.x}
-                  className="text-ink hover:text-accent-cyan link-underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  x
-                </a>
-              </li>
-            </ul>
+            <div className="mt-2">
+              <SocialLinks iconClassName="w-5 h-5" />
+            </div>
           </div>
         </aside>
       </div>

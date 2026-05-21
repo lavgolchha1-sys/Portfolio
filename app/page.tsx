@@ -4,8 +4,8 @@ import { site } from "@/content/site";
 const quickLinks = [
   // { href: "/projects", label: "Projects", desc: "Things i've built" },
   // { href: "/demo", label: "Live demo", desc: "Try an LLM app" },
+  { href: "/about", label: "About", desc: "A bit more about me" },
   { href: "/resume", label: "Resume", desc: "Experience timeline" },
-  { href: "/contact", label: "Contact", desc: "Say hello" },
 ];
 
 export default function HomePage() {
@@ -43,6 +43,33 @@ export default function HomePage() {
               Make it simple, but significant
             </span>
           </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="card p-6 md:p-8 space-y-4 leading-relaxed">
+        <div className="font-mono text-xs text-ink-mute">// about</div>
+        <p className="text-ink-dim">
+          Actuarial professional working across{" "}
+          <span className="text-accent-cyan">
+            P&amp;C, reserving, regulatory reporting, and IFRS implementation
+          </span>{" "}
+          — with experience spanning the US, UK, South-East Asia, and India.
+          Currently leading the end-to-end IFRS transition at ICICI Lombard.
+        </p>
+        <p className="text-ink-dim">
+          Most actuarial work looks backward — reserves, experience, run-off.
+          I&apos;m more interested in the forward-looking side, especially
+          climate risk and whether large chunks of the world stay insurable at
+          all.
+        </p>
+        <div className="pt-2">
+          <Link
+            href="/about"
+            className="font-mono text-sm text-accent-cyan link-underline"
+          >
+            read more →
+          </Link>
         </div>
       </section>
 

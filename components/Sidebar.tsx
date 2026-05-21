@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/content/site";
+import { SocialLinks } from "@/components/SocialIcons";
 
 type NavItem = { href: string; label: string; icon: string };
 
@@ -10,11 +11,9 @@ const nav: NavItem[] = [
   { href: "/", label: "Home", icon: "~" },
   { href: "/about", label: "About", icon: "#" },
   // { href: "/projects", label: "Projects", icon: "{}" },
-  { href: "/skills", label: "Skills", icon: "</>" },
   { href: "/resume", label: "Resume", icon: "::" },
   // { href: "/blog", label: "Blog", icon: ">_" },
   // { href: "/demo", label: "Demo", icon: "@" },
-  { href: "/contact", label: "Contact", icon: "@@" },
 ];
 
 export function Sidebar() {
@@ -83,35 +82,49 @@ export function Sidebar() {
   );
 }
 
-export function MobileTopbar() {
+export function Topbar() {
   return (
-    <header className="md:hidden sticky top-0 z-20 border-b border-bg-line bg-bg-panel/95 backdrop-blur">
-      <div className="flex items-center justify-between px-4 py-3">
-        <Link href="/" className="font-mono text-sm">
+    <header className="sticky top-0 z-20 border-b border-bg-line bg-bg-panel/95 backdrop-blur">
+      <div className="flex items-center justify-between px-4 md:px-8 py-3 gap-3">
+        <Link
+          href="/"
+          className="md:hidden font-mono text-sm shrink-0"
+          aria-label="Home"
+        >
           <span className="text-accent-green">~</span>
           <span className="text-ink-dim">/</span>
           <span className="text-ink">{site.handle}</span>
         </Link>
-        <details className="relative">
-          <summary className="list-none cursor-pointer font-mono text-xs px-2 py-1 rounded border border-bg-line text-ink-dim">
-            menu
-          </summary>
-          <div className="absolute right-0 top-full mt-2 w-48 card p-2 z-30">
-            <ul className="space-y-0.5">
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="block px-3 py-2 font-mono text-sm text-ink-dim hover:text-ink hover:bg-bg-card rounded"
-                  >
-                    <span className="text-ink-mute mr-2">{item.icon}</span>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </details>
+        <div className="hidden md:block" />
+
+        <div className="flex items-center gap-3 md:gap-4">
+          <SocialLinks
+            includeEmail
+            includePhone
+            iconClassName="w-[18px] h-[18px]"
+            gap="gap-3 md:gap-4"
+          />
+          <details className="md:hidden relative">
+            <summary className="list-none cursor-pointer font-mono text-xs px-2 py-1 rounded border border-bg-line text-ink-dim">
+              menu
+            </summary>
+            <div className="absolute right-0 top-full mt-2 w-48 card p-2 z-30">
+              <ul className="space-y-0.5">
+                {nav.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="block px-3 py-2 font-mono text-sm text-ink-dim hover:text-ink hover:bg-bg-card rounded"
+                    >
+                      <span className="text-ink-mute mr-2">{item.icon}</span>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </details>
+        </div>
       </div>
     </header>
   );
