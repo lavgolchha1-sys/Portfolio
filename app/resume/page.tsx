@@ -108,22 +108,20 @@ export default function ResumePage() {
                   ].join(" ")}
                 />
                 <div className="card p-5">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                    <h2 className="text-lg font-semibold text-ink">
-                      {entry.title}{" "}
-                      <span className="text-ink-dim font-normal">
-                        @ {entry.org}
-                      </span>
-                    </h2>
-                    <div className="font-mono text-xs text-ink-mute">
-                      <span className={kindColor[entry.kind]}>
-                        [{kindLabel[entry.kind]}]
-                      </span>{" "}
-                      {fmt(entry.start)} → {fmt(entry.end)}
-                      {entry.location && (
-                        <span className="ml-2">· {entry.location}</span>
-                      )}
-                    </div>
+                  <h2 className="text-lg font-semibold text-ink">
+                    {entry.title}{" "}
+                    <span className="text-ink-dim font-normal">
+                      @ {entry.org}
+                    </span>
+                  </h2>
+                  <div className="mt-1 font-mono text-xs text-ink-mute">
+                    <span className={kindColor[entry.kind]}>
+                      [{kindLabel[entry.kind]}]
+                    </span>{" "}
+                    {fmt(entry.start)} → {fmt(entry.end)}
+                    {entry.location && (
+                      <span className="ml-2">· {entry.location}</span>
+                    )}
                   </div>
                   <ul className="mt-3 space-y-1.5 text-sm text-ink-dim">
                     {entry.bullets.map((b, j) => (
