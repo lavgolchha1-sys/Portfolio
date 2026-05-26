@@ -4,7 +4,7 @@ export const site = {
   role: "Senior Actuarial Analyst",
   location: "India",
   email: "lavgolchha1@gmail.com",
-  phone: "+91 XXXXX XXXXX",
+  phone: "+91 83340 01789",
   socials: {
     github: "https://github.com/lavgolchha1-sys",
     linkedin: "https://linkedin.com/in/lavgolchha",

@@ -54,11 +54,11 @@ export default function HomePage() {
           <span className="text-accent-cyan">
             P&amp;C, reserving, regulatory reporting, and IFRS implementation
           </span>{" "}
-          — with experience spanning the US, UK, South-East Asia, and India.
+          - with experience spanning the US, UK, South-East Asia, and India.
           Currently leading the end-to-end IFRS transition at ICICI Lombard.
         </p>
         <p className="text-ink-dim">
-          Most actuarial work looks backward — reserves, experience, run-off.
+          Most actuarial work looks backward - reserves, experience, run-off.
           I&apos;m more interested in the forward-looking side, especially
           climate risk and whether large chunks of the world stay insurable at
           all.

@@ -43,7 +43,7 @@ function LevelBar({ level = 3 }: { level?: number }) {
 
 function SkillsPanel() {
   return (
-    <aside className="lg:w-72 shrink-0 lg:sticky lg:top-20 lg:self-start">
+    <aside className="lg:w-72 shrink-0 lg:sticky lg:top-20 lg:self-start lg:order-1">
       <details open className="card p-4 group">
         <summary className="list-none cursor-pointer flex items-center justify-between font-mono text-sm">
           <span className="text-accent-cyan">
@@ -69,12 +69,9 @@ function SkillsPanel() {
                 {group.items.map((s) => (
                   <li
                     key={s.name}
-                    className="flex items-center justify-between gap-3 font-mono text-xs"
+                    className="font-mono text-xs text-ink"
                   >
-                    <span className="text-ink truncate">
-                      <span className="text-ink-mute">-</span> {s.name}
-                    </span>
-                    <LevelBar level={s.level} />
+                    <span className="text-ink-mute">-</span> {s.name}
                   </li>
                 ))}
               </ul>
@@ -96,9 +93,7 @@ export default function ResumePage() {
       />
 
       <div className="flex flex-col lg:flex-row gap-6">
-        <SkillsPanel />
-
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 lg:order-2">
           <ol className="relative ml-3 border-l border-bg-line space-y-8">
             {timeline.map((entry, i) => (
               <li key={i} className="pl-6 relative">
@@ -154,6 +149,8 @@ export default function ResumePage() {
             ))}
           </ol>
         </div>
+
+        <SkillsPanel />
       </div>
     </div>
   );
